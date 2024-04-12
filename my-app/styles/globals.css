@@ -3,31 +3,127 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --backgroud-color: 244, 243, 248;
+  --pink: 220, 1, 85, 1;
+  --font-color: 51, 51, 51;
+  --light-font-color: 144, 144, 144;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--backgroud-color))
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.header {
+  height: 120px;
+}
+
+.color-pink {
+  color: rgba(var(--pink));
+}
+
+.logo {
+  font-size: 36px;
+  height: 54px;
+  width: 82px;
+  line-height: 54px;
+  color: rgba(var(--pink));
+}
+
+.ellipse1 {
+  width: 720px;
+  height: 381.41px;
+  top: 0;
+  left: -0;
+  z-index: -1;
+}
+
+.ellipse2 {
+  width: 1080px;
+  height: 762.82px;
+  bottom: 0;
+  right: -100px;
+  z-index: -1;
+}
+
+.ellipse3 {
+  z-index: -1;
+  width: 606.12px;
+  height: 321px;
+  bottom: -10px;
+  right: -100px;
+}
+
+.nav-list {
+  width: 499px;
+  height: 27px;
+}
+
+.text-color {
+  color: rgb(var(--font-color));
+}
+
+.text-light-color {
+  color: rgb(var(--light-font-color))
+}
+
+.upper-section {
+  height: 448px;
+}
+
+.main-text-container {
+  width: 784px;
+  height: 448px;
+}
+
+.main-text {
+  font-size: 120px;
+  line-height: 120px;
+  height: 240px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.contact-button {
+  background-color: rgba(var(--pink));
+  width: 180px;
+  height: 60px;
+  border-radius: 32px;
+  color: rgb(var(--backgroud-color));
+  margin-top: 48px;
+}
+
+.main-image {
+  min-height: 639px;
+}
+
+.our-service {
+  margin-top: 125px;
+  width: 1192px;
+  height: 292px;
+}
+
+.service-title {
+  line-height: 57.6px;
+  height: 58px;
+  width: 185px;
+}
+
+.service-card {
+  width: 376px;
+  height: 186px;
+}
+
+.service-card > div {
+  width: 300px;
+  height: 98px;
+}
+
+.service-description {
+  line-height: 27px;
 }
