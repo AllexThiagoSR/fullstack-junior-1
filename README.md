@@ -1,102 +1,199 @@
 # Desafio Técnico - Full Stack Junior
 
-## Objetivos do desafio
+## Candidato
+  *Nome:* Allex Thiago Santos Rosa
+  <br/>
+  *Linkedin:* https://www.linkedin.com/in/allexthiagosantosrosa/
+  <br/>
+  *GitHub:* https://github.com/AllexThiagoSR/
+  <br/>
+  *Telefone(WhatsApp):* (99) 99127-3808
+  <br/>
+  *Email:* allexthiagodev@gmail.com
 
-Este desafio irá verificar se o candidato possuí as seguintes habilidades em um nível básico:
+## Tecnologias Utilizadas
+  - TypeScript
+  - Tailwind Css
+  - Nextjs
 
-- Noções de Nextjs
-- Noções de Tailwind
-- Noções de Backend
-- Git e Github
+## O que é preciso para rodar a aplicação localmente?
 
-## O que deverá ser desenvolvido
+  - Git
+  - Node
 
-- O candidato deverá escolher e desenvolver uma das heros sections dentro deste figma: https://encurtador.com.br/buzKZ
-- O candidato deverá desenvolver uma rota backend utilizando Nextjs
-- Tanto o front-end quanto o back-end devem ser feitos no mesmo projeto do Nextjs
+## Como rodar a aplicação localmente?
 
-## Requisitos técnico
+  Clonar esse repositório na sua máquina
 
-- O projeto foi criado utilizando o Nextjs
-- Foi configurado tailwind
-- Frontend
-  - A rota / exibe um hero, de acordo com o design escolhido, com pixel perfect
-- Backend
+  ```bash
+  $ git clone https://github.com/AllexThiagoSR/fullstack-junior-1
+  ```
 
-  - Todas as rotas recebem um secret
-    - Caso o secret seja diferente de "naranja-labs", deverá retornar um erro com o melhor status code para essa situação.
-  - A rota /jobs retorna um json com todas as informações do arquivo jobs.ts (O local onde este arquivo esta localizado pode ser alterado de acordo com seu desejo)
-  - a rota /jobs?level=Junior deverá retornar apenas os jobs de level Junior
-  - a rota /job/[id] deverá ter o seguinte comportamento:
-    - Caso o id não exista no arquivo jobs.ts, deverá retornar um erro com um status code mais adequado para essa situação e uma messagem.
-    - Caso o id exista, deverá retornar apenas o job ao qual o id seja correspondente.
-  - a rota /job/submit deverá receber um body com a seguinte estrutura:
+  Mudar para a branch main se não estiver nela ainda
 
-    ```
-    {
-      name: string,
-      age: number,
-      phone: string,
-      state:string,
-      city: string
+  ```bash
+  $ git checkout main
+  ```
+
+  Entrar na pasta <b>*my-app*</b>
+
+  ```bash
+  $ cd my-app
+  ```
+
+  Instalar as dependências do app
+
+  ```bash
+  npm install
+  ```
+
+  Rodar a aplicação em desenvolvimento
+  ```bash
+  $ npm run dev
+  ```
+
+  ou
+
+  Rodar como se estivesse em produção
+  ```bash
+  $ npm run build
+  $ npm run start
+  ```
+
+  Pronto! Agora a aplicação está rodando na porta 3000 do localhost, basta acessar http://localhost:3000 no seu navegador
+
+# Frontend
+
+### Hero Section escolhida
+
+<img width="100%" align="center" src="./hero-section.png" />
+
+### 
+
+# Backend
+
+  URL base: http://localhost:3000/api/
+
+### Secret
+
+  Todas as rotas tem uma verificação de secret que caso não seja informado ou informado o secret incorreto seré enviado a seguinte resposta
+  ```json
+  {
+    "message": "You don't have access to this route."
+  }
+  ```
+
+## Obter todos os trabalhos
+
+### Requisição
+
+  `GET /jobs`
+
+    http://localhost:3000/api/jobs
+
+    headers: {
+      "secret": "string"
     }
-    ```
 
-    - Caso o body não seja enviado, deverá retornar um erro com o melhor status code para esse caso e uma mensagem
-    - Caso esteja tudo ok com o body, deverá retornar um json com a seguinte estrutura:
-
-    ```
-    {
-      message: Thank you for your application, ${name}
+    query: {
+      "level": "string | undefined"
     }
-    ```
 
-  - Todas as rotas recebem um secret
-    - Caso o secret seja diferente de "naranja-labs", deverá retornar um erro com o melhor status code para essa situação.
-  - A rota /jobs retorna um json com todas as informações do arquivo jobs.ts (O local onde este arquivo esta localizado pode ser alterado de acordo com seu desejo)
-  - a rota /jobs?level=Junior deverá retornar apenas os jobs de level Junior
-  - a rota /job/[id] deverá ter o seguinte comportamento:
-    - Caso o id não exista no arquivo jobs.ts, deverá retornar um erro com um status code mais adequado para essa situação e uma messagem.
-    - Caso o id exista, deverá retornar apenas o job ao qual o id seja correspondente.
-  - a rota /job/submit deverá receber um body com a seguinte estrutura:
-
-    ```
+### Resposta - 200 - OK
+  Caso a requisição seja feita corretamente
+  ```json
+  [
     {
-      name: string,
-      age: number,
-      phone: string,
-      state:string,
-      city: string
-    }
-    ```
-
-    - Caso o body não seja enviado, deverá retornar um erro com o melhor status code para esse caso e uma mensagem
-    - Caso esteja tudo ok com o body, deverá retornar um json com a seguinte estrutura:
-
-    ```
+      "id": 1,
+      "job": "Full Stack Developer",
+      "level": "Junior",
+      "status": "open"
+    },
     {
-      message: Thank you for your application, ${name}
+      "id": 2,
+      "job": "Frontend Developer",
+      "level": "Junior",
+      "status": "closed"
+    },
+    {
+      "id": 3,
+      "job": "Backend Developer",
+      "level": "Junior",
+      "status": "closed"
+    },
+    {
+      "id": 4,
+      "job": "Full Stack Developer",
+      "level": "Senior",
+      "status": "closed"
     }
-    ```
+  ]
+  ```
 
-## Como deverá ser feito o desenvolvimento e entrega
+## Obter um trabalho pelo seu ID
 
-- Faça um fork desse repositório
-- No seu readme, inclua detalhes como:
-  - Nome completo
-  - Linkedin
-  - Github
-  - Telefone
-  - Email
-- Ao finalizar, envie o link do seu repositório para mateus@naranjalabs.dev
+### Requisição
 
-## Dicas
+  `GET /jobs/:id`
 
-- Atente-se a qualidade do seu código
-- Atente-se ao pixel perfect
-- Cuidado com commit bomba
-- Faça commits bem descritivos
+    http://localhost:3000/api/jobs/1
 
-## Observações
+    headers: {
+      "secret": "string"
+    }
 
-- Após a data final de entrega, nenhum novo commit será considerado
+### Resposta - 200 - OK
+  Caso a requisição seja feita corretamente
+  ```json
+  {
+    "id": 1,
+    "job": "Full Stack Developer",
+    "level": "Junior",
+    "status": "open"
+  }
+  ```
+
+### Resposta - 404 - NOT FOUND
+  Caso o trabalho com o id informado não exista
+  ```json
+  {
+    "message": "Job not found."
+  }
+  ```
+
+## Aplicar-se a uma posição
+
+### Requisição
+
+  `POST /jobs/submit`
+
+    http://localhost:3000/api/jobs/submit
+
+    headers: {
+      "secret": "string"
+    }
+
+    body: {
+      "name": "string",
+      "age": "number",
+      "phone": "string",
+      "state":"string",
+      "city": "string"
+    }
+
+### Resposta - 200 - OK
+  Caso a requisição seja feita corretamente
+  ```json
+  {
+    "message": "Thank you for your application, Applicant Name"
+  }
+  ```
+
+### Resposta - 400 - BAD REQUEST
+  Caso algum campo não tenha sido preenchido ou preenchido com um valor inválido será enviada uma mensagem relacionada ao campo que está faltando ou incorreto, caso não seja enviado nada a seguinte resposta será retornada:
+  ```json
+  {
+    "message": "No fields sent."
+  }
+  ```
+  
