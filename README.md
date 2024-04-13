@@ -44,7 +44,7 @@
   Instalar as dependências do app
 
   ```bash
-  npm install
+  $ npm install
   ```
 
   Rodar a aplicação em desenvolvimento
